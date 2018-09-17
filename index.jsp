@@ -1,0 +1,220 @@
+<%-- 
+    Document   : index
+    Created on : 13 Apr, 2018, 3:52:37 PM
+    Author     : AMARJEET NIRALA
+--%>
+
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Connection"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Aarti Gas Agency</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <title>Home</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript">
+            
+                function doCheckss()
+                {  
+                   //event.preventDefault();
+                   var uname=document.f1.uid.value; 
+                   var pass=document.f1.pwd.value; 
+                   var unamelength=document.f1.uid.value.length; 
+                   var regularExpression = /[0-9]/;
+                   if(unamelength== 12 && uname.match(regularExpression))
+                    {
+                      document.f1.submit();
+                    }
+               else
+                    {
+                        document.getElementById("info").innerHTML="User name must be Aadhaar Number of 12 digits !   ";
+                        return false;
+                    }
+                }
+                function popcheck()
+                {
+                    alert("Login First!");
+                }
+        </script>
+
+        <style>   
+           
+            .carousel
+            {
+                width: 100%;
+                
+            
+                margin-right: 25px;
+            }
+            
+               
+            .panel-heading
+            {
+                background-color: black;
+            }
+            .form_control
+            {
+                max-width:200px;
+            }
+            
+            
+            .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: red;
+    color: white;
+    text-align: center;
+}
+           
+       
+        </style>
+         
+    </head>
+    <body style="background-color:#f4f4f4; margin: 0">
+     
+        <div class="row container-fluid" style="background-image:url(image/indheader5.jpg);height: 100px;margin:0">
+            <h2  style="text-align: left;color:black;font-family: fantasy ;font-size: 30px"><center>AARTI GAS AGENCY ONLINE PORTAL</center></h2>
+  <h5 style="color:black;text-align: left"></h5>
+</div>
+                
+                <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      
+    </div>
+        <div class="collapse navbar-collapse" id="myNavbar" style="font-family: monospace;font-size:large;font-weight: bold">
+      <ul class="nav navbar-nav">
+          <li class="active"><a href="index.jsp"><span class="glyphicon glyphicon-home">&nbsp;Home</span></a></li>
+          <li><a href="about.jsp">About Us</a></li>
+          <li><a href="Our_Products.jsp">Our Products</a></li>
+        <li><a href="contactus.jsp">Contact Us</a></li>
+        </li>
+      </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="customer_registration.jsp" title="New User Registration" data-toggle="tooltip"><span class="glyphicon glyphicon-chevron-right" ></span> Sign Up</a></li>
+            <li><a href="customerlogin.jsp" title="Registered User Login" data-toggle="tooltip"><span class="glyphicon glyphicon-user"></span> Login</a></li>
+      <li><a href="admin_loginfront.jsp" title="Admin Panel" data-toggle="tooltip"><span class="glyphicon glyphicon-log-in"></span> Admin</a></li>
+    </ul>
+        </div></div>
+                </nav>
+
+        <div class="row container-fluid" style="margin: 0px">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <div><div class="panel panel-default" style="background-color: #ff8228">
+                        <div class="panel-heading" style="background-color: black">
+                            <h3 style="color: white" class="panel-title"><b>Quick Links</b></h3>
+                         </div>
+                         <div  class="panel-body">
+                             <a style="color: black" href="" onclick="popcheck();"><b>Cylinder Booking</b></a></div>
+                        <div class="panel-body"> <a style="color: black" href="" onclick="popcheck();"><b>New Connection</b></a></div>
+                        
+                        <div class="panel-body"><a style="color: black" href="" onclick="popcheck();"><b>Complaints</b></a></div>
+    
+                     </div>
+                    <div class="panel panel-default">
+    <div style="background-color: black;" class="panel-heading">
+        <h3 style="color: white" class="panel-title"><b>News Section</b></h3>
+    </div>
+                        
+                <div>
+                    <marquee behavior="alternate" onmouseover="this.stop();"
+           onmouseout="this.start();">
+                            <%@page import="java.util.Date" %>
+                            <%Date dt=new Date();
+                            String date1=dt.toString(); %>
+                           <b> <%= date1%></b>
+                    </marquee>
+                        </div>        
+                        <div class="panel-body" style="height: 140px;background-image: white">
+                            <marquee direction="up" scrolldelay="200" height="125px" onmouseover="this.stop();"
+           onmouseout="this.start();">
+                                <p style="font-size: 20px;color: black">  <i>  Pradhan Mantri Ujjwala Yojana (PMUY) aims to 
+                                safeguard the health of women & children by providing
+                                them with a clean cooking fuel – LPG, so that they don’t 
+                                have to compromise their health in smoky kitchens or 
+                                wander in unsafe areas collecting firewood.</i></p>
+                            </marquee>  
+        
+                        
+    </div>
+</div>
+
+                </div>
+            </div>
+                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 container-fluid" >
+       
+                <div  id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="margin-top: 22px;">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+
+                    </ol>
+                    <div class="carousel-inner" role="listbox" style="margin-top: -22px">
+                        <div class="item active">
+                            <img src="image/indnew.jpg" alt="First slide" style="width: 100%;height: 450px">
+                        </div>
+                        <div class="item">
+                            <img src="image/ind2.jpg" alt="Second slide" style="width: 100%;height: 450px">
+                        </div>
+                        <div class="item">
+                            <img src="image/ind3.jpg" alt="Third slide" style="width: 100%;height: 450px">
+                        </div>
+                        <div class="item">
+                            <img src="image/ind4.jpg" alt="Third slide" style="width: 100%;height: 450px">
+                        </div>
+                    </div>
+                    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+          </div>
+        </div>
+                    <div class="container-fluid" style="margin: 0px"><h2 style="text-align: center;font-family: cursive"><u><b>Our Products </b></u></h2></div>
+                    <center><div class="row container-fluid" style="margin: 0px;width: 90%">    
+                    <marquee derection="left" scrolldelay="-50" onmouseover="this.stop();"
+                           onmouseout="this.start();">  
+
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><a href="#" title="Commercial Cylinders"><center><img style="height: 150px;width: 150px" class="img-responsive" src="image/ind5.jpg">Domestic Cylinders</center></a>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><a href="#" title="Domestic Cylinders"><center><img style="height: 150px;width: 150px;" class="img-responsive" src="image/ind6.jpg">Commercial Cylinders</center></a>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><a href="#" title="More"><center><img style="height: 150px;width: 150px" class="img-responsive" src="image/ind7.jpg">More</center></a>
+                        </div>
+                    </marquee></div></center>
+                    <div class="row container-fluid" style="background-color: black ;height: 200px;font-size: 20px;margin: 0px">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><a style="color: white" href="">References</a><br>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><a style="color: white" href="about.jsp">About Us</a></div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><a style="color: white" href="index.jsp">Home</a></div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><a style="color: white" href="contactus.jsp">Contact Us</a></div>
+            
+            
+        </div>
+        <div class="row footer container-fluid" style="background-color:#e65c00 ;height: 40px;font-size: 20px;margin: 0px">
+            <div style="color: black;text-align: center">&copy; Copyright 2018  All rights reserved.  Developed By <a style="color: green" href="https://facebook.com/AmarjeetAKN">AK NIRALA</a>  </div>
+
+                        </div>
+    </body>
+    
+</html>
